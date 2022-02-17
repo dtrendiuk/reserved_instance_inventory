@@ -3,7 +3,7 @@ export CONTACT_EMAIL=trendjuk@gmail.com
 
 ## first function gathers the list and sends email notifications about all EC2 instances (reserved and on-demand)
 inventory_list () {
-region=$(aws ec2 describe-regions --query "Regions[*].RegionName" --output text)
+region=$(aws ec2 describe-regions --region=eu-west-1 --query "Regions[*].RegionName" --output text)
 for region in $region
 do
   # gathers all on-demand EC2 instances and sends the list to List_Instances.csv
@@ -23,7 +23,7 @@ rm List_Instances.csv List_Reserved_Instances.csv
 
 ## second function checks expiration period and sends email notifications if the reservation period ends in two weeks
 reserved_instances_inventory () {
-region=$(aws ec2 describe-regions --query "Regions[*].RegionName" --output text)
+region=$(aws ec2 describe-regions --region=eu-west-1 --query "Regions[*].RegionName" --output text)
 for region in $region
 do
   # filter expiration date of active reserved instances
@@ -60,7 +60,7 @@ done
 }
 
 # checks AWS availability and whether list of the regions can be received
-aws ec2 describe-regions --query "Regions[*].RegionName" --output text
+aws ec2 describe-regions --region=eu-west-1 --query "Regions[*].RegionName" --output text
 if [ $? -eq 0 ]
 then
   inventory_list
