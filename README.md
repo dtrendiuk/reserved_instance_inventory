@@ -1,5 +1,4 @@
 # Reserved EC2 instance inventory
-Internal tasks [#141972](https://redmine.dev.pro/issues/141972)
 
 ## Overview
 This repo contains bash script which allows to:

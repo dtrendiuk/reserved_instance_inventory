@@ -1,5 +1,5 @@
 #!/bin/bash
-export CONTACT_EMAIL=trendjuk@gmail.com
+export CONTACT_EMAIL=your_contact@email.address
 
 ## first function gathers the list and sends email notifications about all EC2 instances (reserved and on-demand)
 inventory_list () {
